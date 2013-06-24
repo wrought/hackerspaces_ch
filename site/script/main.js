@@ -21,7 +21,22 @@ function createIcon(image_path) {
 
 function getPosition(data){
     var position = data.coordinate;
-    var lonLat = new OpenLayers.LonLat(position[1],position[0])
+    if (typeof position == "undefined") {
+        position = new Array("1","2");
+    }
+    if (typeof position[1] != "undefined") {
+        lon = position[1]
+    }
+    else {
+        lon = '-119.3'
+    }
+    if (typeof position[0] != "undefined") {
+        lat = position[0]
+    }
+    else {
+        lat = 0
+    }
+    var lonLat = new OpenLayers.LonLat(lon,lat)
         .transform(
            new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
            map.getProjectionObject()); // to Spherical Mercator Projection

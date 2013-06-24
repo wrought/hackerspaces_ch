@@ -17,7 +17,7 @@ BASE_URL = "http://hackerspaces.org"
 def absolute_url(path):
     return urljoin(BASE_URL, path)
 
-SWISS_HS = "/wiki/switzerland"
+SWISS_HS = "/wiki/California"
 HS_URL = absolute_url("w/index.php?title={0}&action=edit")
 LOCATION_KEY = "coordinate"
 LOGO_KEY = "logo"
@@ -45,9 +45,13 @@ def get_etree(url, browser_dump=False):
     return tree
 
 def get_hackerspaces():
-    tree = get_etree(absolute_url(SWISS_HS))
-    hs_names = tree.xpath('//*[@id="mw-content-text"]/table[1]/tr[2]/td[1]/ul[1]/li//text()')
-    links = tree.xpath('//*[@id="mw-content-text"]/table[1]/tr[2]/td[1]/ul[1]/li/a/@href')
+    # tree = get_etree(absolute_url(SWISS_HS))
+    # hs_names = tree.xpath('//*[@id="mw-content-text"]/ul[1]/li//text()')
+    # links = tree.xpath('//*[@id="mw-content-text"]/ul[1]/li/a/@href')
+ 
+    with open('hackerspaces_california_names', 'r') as ca_f:
+    	hs_names = ca_f.readlines()[0].split(",")
+        print hs_names
 
     hackerspaces = {}
     for name in hs_names:
