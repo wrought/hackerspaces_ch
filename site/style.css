@@ -4,9 +4,9 @@ html, body {
 }
 
 body {
-    background-image:url('images/blue-back.jpg');
-    color: white;
-    font-family:'andale mono', sans-serif;
+    background-color: #EEC5A4;
+    color: #111;
+    font: 1em/1.625 'Helvetica Neue',Helvetica,Arial,sans-serif
 }
 
 h1 {
@@ -18,25 +18,32 @@ h1 {
     margin: 10px 20px;
 }
 
+#map-wrapper {
+    display:block;
+    margin: 0 auto;
+}
+
 #demoMap {
+    height: 270px;
     width: 100%;
-    height: 350px;
-    margin: 0px;
     border-radius: 4px;
 }
 
-a {
-    color: cornflowerblue;
+#data-wrapper {
+    display:block;
+    margin-top: 20px;
+    width: 100%;
 }
 
 #data {
-    margin-top: 20px;
+    padding-left:10px;
+    margin-top:10px;
 }
 
 #data label {
     font-weight: bold;
     display: inline-block;
-    width: 150px;
+    min-width: 150px;
 }
 
 img {
@@ -44,7 +51,29 @@ img {
     margin-bottom: 10px;
 }
 
+a:hover {
+    transition: all 0.3s linear 0s;
+    border-bottom: 2px solid #8f1f1f;
+    color: black;
+}
+
+a:hover, a:active {
+    	outline: medium none;
+}
+
+a, a:visited {
+    border-bottom: 2px solid #AAAAAA;
+    color: #777777;
+    text-decoration: none;
+}
+
+.clear {
+    clear:both;
+}
+
 #footer {
-    margin-top: 20px;
+    margin-top: 30px;
+    width:100%;
+    text-align:right;
 }
 
